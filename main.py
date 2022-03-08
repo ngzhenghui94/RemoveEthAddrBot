@@ -14,10 +14,11 @@ from telegram.ext import (
 
 load_dotenv()
 bot_token = os.getenv('TOKEN')
+get_admins = os.getenv('ADMINS')
 
 # Set the Bot's mode. In 'Admin' mode, the bot will delete messages that contains an Ethereum address.
 # In 'Warn' mode, the bot will warn users that are posting an Ethereum address.
-mode = "Admin"
+mode = "Administrate"
 
 
 # Enable localized logging
@@ -50,7 +51,7 @@ def moderate(update: Update, context: CallbackContext):
             text="@{} Posting of Ethereum Addresses is not allowed to protect users in this group from scammers.".format(
                 update.message.from_user.username),
             parse_mode=ParseMode.MARKDOWN)
-        if mode == "Admin":
+        if mode == "Administrate":
             context.bot.delete_message(
                 chat_id=update.message.chat_id, message_id=update.message.message_id)
 
