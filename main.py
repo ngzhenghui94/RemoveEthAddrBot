@@ -43,7 +43,7 @@ def moderate(update: Update, context: CallbackContext):
     print(update.message)
     if not update.message.text:
         return
-    elif doesMsgContainEthAddr(update.message.text):
+    if doesMsgContainEthAddr(update.message.text):
         update.message.reply_text(
             text="@{} Posting of Ethereum Addresses is not allowed to protect users in this group from scammers.".format(
                 update.message.from_user.username),
