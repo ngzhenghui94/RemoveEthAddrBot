@@ -4,7 +4,7 @@ import os
 import re
 import logging
 from dotenv import load_dotenv
-from telegram import Update, Chat, ChatMember, ParseMode
+from telegram import Update, ParseMode
 from telegram.ext import (
     Updater,
     Filters,
