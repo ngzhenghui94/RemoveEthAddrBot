@@ -36,10 +36,7 @@ def error(update: Update, context: CallbackContext):
 
 def doesMsgContainEthAddr(text):
     x = re.findall("0x[a-fA-F0-9]{40}", text)
-    if x:
-        return True
-    else:
-        return False
+    return bool(x)
 
 
 def moderate(update: Update, context: CallbackContext):
